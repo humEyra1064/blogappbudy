@@ -6,19 +6,15 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
+
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
 export default function Navbar() {
-  const [auth, setAuth] = React.useState(true);
+  
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
+ 
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -29,20 +25,9 @@ export default function Navbar() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1 , }}>
+      
+      <AppBar position="static" sx={{backgroundColor:"#009688",textAlign:"center",}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -50,13 +35,14 @@ export default function Navbar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
-          >
-            <MenuIcon />
+         >   
+           <img src="https://cdn.pixabay.com/photo/2012/05/07/18/57/blog-49006_640.png" style={{width:"150px" }} />
+          
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Photos
+           <span>{"<Hümeyra IT/>"}</span>BLOG
           </Typography>
-          {auth && (
+         
             <div>
               <IconButton
                 size="large"
@@ -66,7 +52,7 @@ export default function Navbar() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <AccountCircle style={{fontSize:"40px" }} />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -87,7 +73,7 @@ export default function Navbar() {
                 <MenuItem onClick={handleClose}>My account</MenuItem>
               </Menu>
             </div>
-          )}
+         
         </Toolbar>
       </AppBar>
     </Box>
