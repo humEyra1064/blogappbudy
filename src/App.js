@@ -1,12 +1,33 @@
 
+import { blueGrey, grey } from '@mui/material/colors';
 import './App.css';
-import NavBar from './components/Navbar';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Provider } from "react-redux";
+import AppRouter from './router/AppRouter';
+
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: grey["900"],
+      },
+      secondary: {
+        main: blueGrey["900"],
+      },
+    },
+  });
   return (
-    <div className="App">
-     <NavBar/>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        {/* <Provider store={store}> */}
+      
+          <AppRouter />
+       
+        {/* </Provider> */}
+       
+      </ThemeProvider>
+    </>
   );
 }
 
