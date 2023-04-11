@@ -4,6 +4,7 @@ import './App.css';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Provider } from "react-redux";
 import AppRouter from './router/AppRouter';
+import { CssBaseline } from '@mui/material';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         {/* <Provider store={store}> */}
-      
+        <CssBaseline/>
           <AppRouter />
        
         {/* </Provider> */}
