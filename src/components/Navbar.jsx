@@ -58,7 +58,10 @@ function NavBar() {
     <AppBar position="static">
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+             
+          <img src = "https://www.digitalthakur.com/wp-content/uploads/2021/08/blog-digital-thakur.png" style={{display: { xs: "none", md: "flex" }, mr: 1 ,width:"150px"}} />
+         
           <Typography
             variant="h6"
             noWrap
@@ -70,7 +73,7 @@ function NavBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color:  "inherit",
               textDecoration: "none",
             }}
           >
@@ -118,7 +121,8 @@ function NavBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+          {/* <img src = "https://www.digitalthakur.com/wp-content/uploads/2021/08/blog-digital-thakur.png" style={{display: { xs: "flex", md: "none" }, mr: 1 ,width:"150px"}} /> */}
           <Typography
             variant="h5"
             noWrap
