@@ -7,12 +7,12 @@ import LockIcon from "@mui/icons-material/Lock"
 import image from "../assets/1f468-200d-1f4bb.png"
 import { Link } from "react-router-dom"
 import { Formik } from "formik"
-import LoginForm from "../components/auth/LoginForm"
-// import useAuthCalls from "../hooks/useAuthCalls"
-// import LoginForm, { loginScheme } from "../components/LoginForm"
+
+import useAuthCalls from "../hooks/useAuthCalls"
+import LoginForm, { loginScheme } from "../components/auth/LoginForm"
 
 const Login = () => {
-  // const { login } = useAuthCalls()
+  const { login } = useAuthCalls()
 
   return (
     <Container maxWidth="lg">
@@ -21,7 +21,7 @@ const Login = () => {
         justifyContent="center"
         direction="row-reverse"
         sx={{
-          height: "100vh",
+          height: "80vh",
           p: 2,
         }}
       >
@@ -31,7 +31,7 @@ const Login = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={12} >
+        <Grid item xs={12} sm={10} md={6} >
           <Avatar
             sx={{
               backgroundColor: "secondary.light",
@@ -53,23 +53,25 @@ const Login = () => {
 
           <Formik
             initialValues={{ email: "", password: "" }}
-            // validationSchema={loginScheme}
+            validationSchema={loginScheme}
             onSubmit={(values, actions) => {
-              // login(values)
+              login(values)
               actions.resetForm()
               actions.setSubmitting(false)
             }}
             component={(props) => <LoginForm {...props} />}
-          ></Formik>
+          >
+
+          </Formik>
 
           <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/register">Do you have not an account?</Link>
           </Box>
         </Grid>
 
-        <Grid item xs={10} sm={7} md={6} sx={{textAlign:"center" }} >
+        <Grid item xs={10} sm={7} md={6} sx={{textAlign:"center" ,alignItems:"center" }} >
           <Container>
-            <img src={image} alt="img" />
+            <img src={image} alt="img" style={{alignItems:"center"}} />
           </Container>
         </Grid>
       </Grid>
