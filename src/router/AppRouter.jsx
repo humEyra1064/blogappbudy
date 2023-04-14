@@ -11,6 +11,7 @@ import Register from "../pages/Register";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Profile from "../pages/Profile";
+import MyBlog from "../pages/MyBlog";
 
 const AppRouter = () => {
   return (
@@ -29,6 +30,7 @@ const AppRouter = () => {
             <Route path="new-blog" element={<NewBlog />} />
             <Route path="detail/:id" element={<Detail />} />
             <Route path="profile" element={<Profile/>} />
+            <Route path="my-blog" element={<MyBlog/>} />
             
           </Route>
 

@@ -59,7 +59,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundColor: "#4AEDC4" }}>
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
@@ -188,6 +188,10 @@ function NavBar() {
                 <>
                   <MenuItem  onClick={handleCloseUserMenu}>
                     <Typography textAlign="center" onClick={()=>navigate("profile") } >{"Profile"}</Typography>
+                  </MenuItem>
+
+                  <MenuItem  onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center" onClick={()=>navigate("my-blog") } >{"MyBlog"}</Typography>
                   </MenuItem>
 
                   <MenuItem  onClick={handleCloseUserMenu}>
