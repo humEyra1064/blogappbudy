@@ -5,9 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { useSelector } from 'react-redux';
+import defaultImg from "../assets/profile2.jpg"
 
 export default function Profile() {
   const {currentUser , email, bio,image}= useSelector((state)=>state.auth)
+
   return (
       <Card sx={{mt:"4rem"}}>
     <Card sx={{ maxWidth: 350  ,mt:"1rem",margin:"auto", alignItems:"center"}}>
@@ -18,7 +20,7 @@ export default function Profile() {
           component="img"
           height="300"
           
-          image={image}
+          image={image || defaultImg}
           alt="green iguana"
           sx={{mt:"2rem",mb:"2rem" }}
         />
