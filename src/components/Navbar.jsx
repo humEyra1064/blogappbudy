@@ -13,6 +13,8 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import useAuthCall from "../hooks/useAuthCalls";
 
 const pages = [
   {
@@ -31,13 +33,15 @@ const pages = [
 
 const settings = ["Profie", "Login", "Logout"];
 
-const currentUser = true;
+
 
 function NavBar() {
+  const {currentUser}=useSelector((state)=>state.auth)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const navigate = useNavigate();
+  const {logout} = useAuthCall()
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -122,7 +126,7 @@ function NavBar() {
             </Menu>
           </Box>
           {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          {/* <img src = "https://www.digitalthakur.com/wp-content/uploads/2021/08/blog-digital-thakur.png" style={{display: { xs: "flex", md: "none" }, mr: 1 ,width:"150px"}} /> */}
+          {/* <img src = "https://www.digitalthakur.com/wp-content/uploads/2021/08/blog-digital-thakur.png" style={{display: { xs: "flex", md: "none" ,larg:"none" }, mr: 1 ,width:"150px"}} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -183,16 +187,18 @@ function NavBar() {
               {currentUser ? (
                 <>
                   <MenuItem  onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{"Profile"}</Typography>
+                    <Typography textAlign="center" onClick={()=>navigate("profile") } >{"Profile"}</Typography>
                   </MenuItem>
 
                   <MenuItem  onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{"Logout"}</Typography>
+                    <Typography textAlign="center" onClick={()=>logout()} >{"Logout"}</Typography>
+                   
+                    
                   </MenuItem>
                 </>
               ) : (
                 <MenuItem  onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{"Login"}</Typography>
+                  <Typography textAlign="center" onClick={()=>navigate("/login") }>{"Login"}</Typography>
                 </MenuItem>
               )}
             </Menu>

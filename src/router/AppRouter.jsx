@@ -10,6 +10,7 @@ import NotFound from "../pages/NotFound";
 import Register from "../pages/Register";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Profile from "../pages/Profile";
 
 const AppRouter = () => {
   return (
@@ -27,6 +28,8 @@ const AppRouter = () => {
           <Route path="" element={<PrivateRouter />}>
             <Route path="new-blog" element={<NewBlog />} />
             <Route path="detail/:id" element={<Detail />} />
+            <Route path="profile" element={<Profile/>} />
+            
           </Route>
 
           <Route path="*" element={<NotFound/>}/>
