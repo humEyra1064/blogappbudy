@@ -8,12 +8,12 @@ import {
   getCommentsSuccess,
   fetchStart,
   
-} from "../features/stockSlice";
+} from "../features/blogSlice";
 import useAxios from "./useAxios";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
 const useBlogCall = () => {
-  const { token } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const { axiosPublic, axiosWithToken } = useAxios();
 
@@ -33,7 +33,7 @@ const useBlogCall = () => {
     dispatch(fetchStart());
     try {     
       await axiosWithToken.get(`api/${url}/${id}/`);
-      dispatch(getBlogSuccess({ data, url }));
+      dispatch(getMyBlogSuccess({ data, url }));
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
