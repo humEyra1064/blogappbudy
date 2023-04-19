@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
+
 import { Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import useBlogCall from "../hooks/useBlogCalls";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default function NewBlog({ open, handleClose }) {
+export default function NewBlog( ) {
 
   const { postBlogData ,getBlogData, putBlogData } = useBlogCall();
   
@@ -73,7 +73,7 @@ export default function NewBlog({ open, handleClose }) {
               type="text"
               required
               variant="outlined"
-              value={info?.title}
+              value={info?.title || ""}
               onChange={handleChange}
             />
             <TextField
@@ -83,7 +83,7 @@ export default function NewBlog({ open, handleClose }) {
               type="url"
               required
               variant="outlined"
-              value={info?.image}
+              value={info?.image || ""}
               onChange={handleChange}
             />
               <FormControl fullWidth>
@@ -114,12 +114,12 @@ export default function NewBlog({ open, handleClose }) {
               required
               select
               variant="outlined"
-              value={info?.status || ""}
+              value={info?.status }
               onChange={handleChange}
             >
               <MenuItem value="please">Please Choose </MenuItem>
-              <MenuItem value="draft">Draft </MenuItem>
-              <MenuItem value="published">Published </MenuItem>
+              <MenuItem value="d">Draft </MenuItem>
+              <MenuItem value="p">Published </MenuItem>
 
               </TextField>
 
@@ -133,7 +133,7 @@ export default function NewBlog({ open, handleClose }) {
              
               required
               variant="outlined"
-              value={info?.content}
+              value={info?.content || ""}
               onChange={handleChange}
             />
             <Button type="submit" variant="contained" sx={{backgroundColor: "#4AEDC4"}}>
